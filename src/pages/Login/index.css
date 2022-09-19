@@ -1,0 +1,56 @@
+#card {
+  text-align: center;
+  width: 30vh;
+  height: auto;
+  align-content: center;
+  align-items: center;
+  padding: 60px;
+  box-shadow: 2px solid black;
+}
+#d1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#d2 {
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+
+  align-content: center;
+  align-items: center;
+}
+#d3 {
+  display: block;
+  margin-bottom: 20px;
+}
+#i1 {
+  color: white;
+  background: #c2c4c7;
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 360px;
+  width: 60px;
+  height: 60px;
+}
+#d4 {
+  display: block;
+  flex-direction: row;
+}
+.outlined-name {
+  display: block;
+  width: 80%;
+}
+.outlined-uncontrolled {
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#b1 {
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+  margin-right: 8%;
+}
