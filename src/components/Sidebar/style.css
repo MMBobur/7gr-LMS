@@ -34,9 +34,8 @@
 
 /* ///////////////////////////////// */
 
-#sidebar{
+/* #sidebar{
 	min-height: 100vh;
-	/* max-height: 650vh; */
 	overflow-y: auto;
 	direction: ltr;
 	scrollbar-color: #fffefd #e4e4e4;
@@ -57,4 +56,4 @@
 	background-image: linear-gradient(180deg, #a7949e 0%, #959699 99%);
 	box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
   }
-  
+   */

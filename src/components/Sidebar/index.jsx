@@ -1,113 +1,159 @@
 import React from "react";
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import { data } from "../Sidebar/data";
 import { NavLink } from "react-router-dom";
-import { data } from "./data";
+import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 import "./style.css";
-import StackedLineChartIcon from '@mui/icons-material/StackedLineChart';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
-  return (
-    <Box
-      id="sidebar"
-      sx={{
-        display: { xs: "none", sm: "none", lg: "flex", md: "none" },
-        // position:'fixed',
-        width:'45vh'
-      }}
-    >
-      <Grid container sx={{ width: "100%" }} >
-        <Grid lg={12} xs={0} sm={0} md={12} item >
-          <Box
-            sx={{
-              width: "100%",
-              overflowY: "scroll",
-              msOverflowStyle: "none",
-              scrollbarWidth: "none",
-              "::-webkit-scrollbar": {
-                display: "none",
-              },
+const drawerWidth = 265;
+
+function ResponsiveDrawer(props) {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <List sx={{backgroundColor:'#F8F9FA'}}>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          py: "24px",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <StackedLineChartIcon />
+        <Typography
+          sx={{
+            fontSize: "14px",
+            ml: "5px",
+            fontWeight: "bold",
+            color: "#67748e",
+          }}
+        >
+          Soft UI Dashboard
+        </Typography>
+      </Box>
+      <Divider />
+
+      {data.map((text, index) => (
+        <ListItem key={index} disablePadding sx={{width:'80%',ml:'auto', mr:'auto'}}>
+          <NavLink
+            style={{
+              textDecoration: "none",
+              position: "relative",
+              zIndex: 100,
             }}
+            to={text.navi}
+            key={index}
           >
-
-            
-            <Box
+            <ListItemButton
+              id="btnBox"
+              variant="text"
               sx={{
-                width: "100%",
+                width: "170%",
+                px: "16px",
+                py: "11px",
+                color: "black",
                 display: "flex",
-                py: "24px",
-                justifyContent: "center",
-                alignItems: "center",
-                flexWrap: "wrap",
+                justifyContent: "start",
+                borderRadius: 2,
+                bgcolor: "transparent",
               }}
             >
-              <StackedLineChartIcon />
-              <Typography
-                sx={{ fontSize: "14px", ml: "5px", fontWeight: "bold", color:'#67748e' }}
+              <Box
+                className="iconNav"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  p: "9px",
+                  borderRadius: "22%",
+                  mr: "12px",
+                }}
               >
-                Soft UI Dashboard
-              </Typography>
-            </Box>
-            <Divider variant="inset" sx={{ mx: "10%" }} />
+                {text.icon}
+              </Box>
+              <ListItemText
+                fontSize="14px"
+                className="text"
+                primary={text.name}
+              />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
+      ))}
+    </List>
+  );
 
-            <Box
-              sx={{
-                mx: "16px",
-                mt: "16px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5px",
-                pb: "30px",
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
-
-              }}
-            >
-              {data.map((item, index) => (
-                <NavLink
-                  style={{
-                    textDecoration: "none",
-                    position: "relative",
-                    zIndex: 100,
-                  }}
-                  to={item.navi}
-                  key={index}
-                >
-                  <Button
-                    variant="text"
-                    id="btnBox"
-                    sx={{
-                      width: "100%",
-                      px: "16px",
-                      py: "11px",
-                      color: "black",
-                      display: "flex",
-                      justifyContent: "start",
-                      borderRadius: 2,
-                      bgcolor: "transparent",
-                    }}
-                  >
-                    <Box
-                      className="iconNav"
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        p: "9px",
-                        borderRadius: "22%",
-                        mr: "12px",
-                      }}
-                    >
-                      {item.icon}
-                    </Box>
-                    <Typography fontSize="14px" className="text">
-                      {item.name}
-                    </Typography>
-                  </Button>
-                </NavLink>
-              ))}
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+  return (
+    <Box sx={{ display: { xs: "none", sm: "none", lg: "flex", md: "none" }}}>
+      {/* <CssBaseline /> */}
+      <Box
+        // id="sidebar"
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "none", sm: "none", lg: "flex", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "none", lg: "flex", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
     </Box>
   );
+}
+
+ResponsiveDrawer.propTypes = {
+  /**
+   * Injected by the documentation to work in an iframe.
+   * You won't need it on your project.
+   */
+  window: PropTypes.func,
 };
+
+export default ResponsiveDrawer;
