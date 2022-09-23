@@ -33,7 +33,7 @@ export default function DenseTable() {
   }
 
   return (
-    <Box sx={{ marginTop: "60px", marginLeft: { xs: "0", sm: "240px", md: "240px" }, padding: '3%' }}>
+    <Box sx={{p:3}}>
       <Button variant='contained' onClick={qoshish} sx={{ fontWeight: 'bold', background: 'linear-gradient(310deg,#141727,#3a416f)' }}>Qo'shish&nbsp; <AddOutlinedIcon /></Button>
       <TableContainer sx={{ marginTop: '20px' }} component={Paper}>
         <Table sx={{ minWidth: 530 }} size="small" aria-label="a dense table">
