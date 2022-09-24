@@ -7,7 +7,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   margin-top: 14px;
-  gap: 2rem;
+  gap: 1rem;
   display: flex;
   // grid-template-columns: 270px 1fr;
 
