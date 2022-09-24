@@ -45,18 +45,19 @@ export default function DenseTable() {
         }
     }
     return (
-        <TableContainer component={Paper} sx={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+        <TableContainer component={Paper} sx={{display:"flex"}}>
             <Table sx={{ minWidth: 850 }} size="medium" aria-label="a dense table">
                 <TableHead>
                     <Typography sx={{ fontWeight: "500", color: "#344767", fontSize: "20px", fontFamily: "sans-serif", padding: "4%" }}>
-                        Authors table
+                        Students
                     </Typography>
                     <TableRow>
-                        <TableCell className='a'>AUTHOR</TableCell>
-                        <TableCell align="left" className='a'>FUNCTION</TableCell>
-                        <TableCell align="left" className='a'>STATUS</TableCell>
-                        <TableCell align="left" className='a'>EMPLOYED</TableCell>
-                        <TableCell align="left" className='a'><Button variant='contained' onClick={()=>{
+                        <TableCell className='a'>Ism Sharifi</TableCell>
+                        <TableCell align="left" className='a'>Telefor raqami</TableCell>
+                        <TableCell align="left" className='a'>Adress</TableCell>
+                        <TableCell align="left" className='a'>Faollik</TableCell>
+                        <TableCell align="left" className='a'>Tug'ulgan sanasi</TableCell>
+                        <TableCell align="left" className='a'><Button variant='contained' className='but1' onClick={()=>{
                             navigate("/add")
                         }}>Add Student</Button></TableCell>
                     </TableRow>
@@ -67,35 +68,35 @@ export default function DenseTable() {
                             key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell align="left">
-                                <img src={val.image} alt="Img" style={{ width: "5%", borderRadius: "10px" }} align="left" />
+                            <TableCell align="left" width="15%">
+                                <img src={val.image} alt="Img" style={{ width: "25%", borderRadius: "10px" }} align="left" />
                                 <Box sx={{ marginLeft: "7%" }}>
-                                    <Typography sx={{ fontWeight: "550", color: "#344767", fontSize: "15px", fontFamily: "sans-serif" }}>
+                                    <Typography sx={{ fontWeight: "550", color: "#344767", fontSize: "15px", fontFamily: "sans-serif",display:"flex",alignItems:"center",width:"30%",padding:"2%",letterSpacing:"1px"}}>
                                         {val.lastname} {val.firstname}
-                                    </Typography>
-                                    <Typography sx={{ fontWeight: "550", color: "#A8B3C4", fontSize: "12px", fontFamily: "sans-serif" }}>
-                                        ohn@creative-tim.com
                                     </Typography>
                                 </Box>
                             </TableCell>{/* {row.calories} */}
-                            <TableCell component="th" scope="row" align="left">
+                            <TableCell component="th" scope="row" align="left" sx={{width:"18%"}}>
+                                {val.phone}
+                            </TableCell>
+                            <TableCell component="th" scope="row" align="left" sx={{width:"15%"}}>
                                 {val.address}
                             </TableCell>
 
-                            <TableCell align="left">{val.status == true ?
-                                <Box style={style1} align="left" className='activ'>ONLINE</Box>
+                            <TableCell align="left"  sx={{width:"13%"}}>{val.status == true ?
+                                <Box style={style1} align="left" className='activ'>Active</Box>
                                 :
-                                <Box style={style1} align="left" className='activ2'>OFFLINE</Box>
+                                <Box style={style1} align="left" className='activ2'>No Active</Box>
                             }</TableCell>
-                            <TableCell align="left" sx={{ fontWeight: "550", letterSpacing: "0.5px", color: "#8392ab", fontFamily: "sans-serif" }}>{val.birthDate}</TableCell>
-                            <TableCell align="left" className='table' sx={{ display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
+                            <TableCell align="left" sx={{ fontWeight: "550", letterSpacing: "0.5px", color: "#8392ab", fontFamily: "sans-serif",width:"25%" }}>{val.birthDate}</TableCell>
+                            <TableCell align="left" className='table' sx={{  justifyContent: "space-between", width: "80%", alignItems: "center" }}>
                                 <Button
                                 >
                                     <Link to="/edit" state={val.id} style={{ textDecoration: "none", color: "blue", fontWeight: "700", fontSize: "20px", }}>Edit</Link>
                                 </Button>
                                 <Button variant="contained" className='btn' type="submit" onClick={() => {
                                     handleDelete(val.id);
-                                }} sx={{ marginLeft: "-50px", backgroundColor: "red", borderRadius: "10px" }}>
+                                }} sx={{ marginLeft: "5%", backgroundColor: "red", borderRadius: "10px" }}>
                                     DELETE
                                 </Button>
                             </TableCell>

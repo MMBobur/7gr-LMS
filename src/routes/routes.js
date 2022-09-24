@@ -12,7 +12,7 @@ export const publicRoutes = [
     element: <Auth />,
     children: [
       { path: "/", element: <Login /> },
-      { path: "/login", element: <Login /> },
+      { path: "/login", element: <Students /> },
       { path: "404", element: <NotFound /> },
       { path: "*", element: <Navigate to="/login" /> },
     ],
@@ -22,10 +22,10 @@ export const dashboardRoutes = [
   {
     element: <Auth />,
     children: [
-      { path: "/sidebar", element: <Sidebar /> },
+      { path: "/students", element: <Students /> },
       { path: "/edit", element: <Edit /> },
       { path: "/add", element: <Add /> },
-      { path: "/login", element: <Login /> },
+      { path: "/login", element: <Students /> },
       { path: "404", element: <NotFound /> },
       { path: "*", element: <Navigate to="/login" /> },
     ],
