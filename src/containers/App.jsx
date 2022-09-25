@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { useRoutes } from "react-router-dom";
 import {
   publicRoutes,
-  waiterRoutes,
   dashboardRoutes,
-  cashierRoutes,
 } from "../routes/routes";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -37,8 +35,10 @@ export default () => {
   const publicUser = token ? false : true;
 
   const content = useRoutes(
+
     dashboardRoutes
     // publicUser ? publicRoutes : waiter ? dashboardRoutes : dashboardRoutes
+
   );
 
   return <>{content}</>;

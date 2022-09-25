@@ -25,7 +25,7 @@ export const publicRoutes = [
   {
     element: <Auth />,
     children: [
-      { path: "/", element: <Login /> },
+      { path: "/", element: <Fanlar /> },
       { path: "/login", element: <Login /> },
       { path: "404", element: <NotFound /> },
       { path: "*", element: <Navigate to="/login" /> },
