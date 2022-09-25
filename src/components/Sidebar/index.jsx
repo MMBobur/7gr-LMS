@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import * as React from 'react';
 import { useRoutes, Link, NavLink, useNavigate } from 'react-router-dom';
 
@@ -48,6 +49,25 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const drawerWidth = 240;
+=======
+import React from "react";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import { data } from "../Sidebar/data";
+import { NavLink } from "react-router-dom";
+import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
+import "./style.css";
+
+const drawerWidth = 265;
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -56,6 +76,7 @@ function ResponsiveDrawer(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+<<<<<<< HEAD
   const data = [
     {
       icon: <StoreIcon fontSize="10px" />,
@@ -263,6 +284,92 @@ function ResponsiveDrawer(props) {
         </Box>
       </AppBar>
       <Box
+=======
+
+  const drawer = (
+    <List sx={{backgroundColor:'#F8F9FA'}}>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          py: "24px",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <StackedLineChartIcon />
+        <Typography
+          sx={{
+            fontSize: "14px",
+            ml: "5px",
+            fontWeight: "bold",
+            color: "#67748e",
+          }}
+        >
+          Soft UI Dashboard
+        </Typography>
+      </Box>
+      <Divider />
+
+      {data.map((text, index) => (
+        <ListItem key={index} disablePadding sx={{width:'80%',ml:'auto', mr:'auto'}}>
+          <NavLink
+            style={{
+              textDecoration: "none",
+              position: "relative",
+              zIndex: 100,
+            }}
+            to={text.navi}
+            key={index}
+          >
+            <ListItemButton
+              id="btnBox"
+              variant="text"
+              sx={{
+                width: "170%",
+                px: "16px",
+                py: "11px",
+                color: "black",
+                display: "flex",
+                justifyContent: "start",
+                borderRadius: 2,
+                bgcolor: "transparent",
+              }}
+            >
+              <Box
+                className="iconNav"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  p: "9px",
+                  borderRadius: "22%",
+                  mr: "12px",
+                }}
+              >
+                {text.icon}
+              </Box>
+              <ListItemText
+                fontSize="14px"
+                className="text"
+                primary={text.name}
+              />
+            </ListItemButton>
+          </NavLink>
+        </ListItem>
+      ))}
+    </List>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
+  return (
+    <Box sx={{ display: { xs: "none", sm: "none", lg: "flex", md: "none" }}}>
+      {/* <CssBaseline /> */}
+      <Box
+        // id="sidebar"
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
@@ -277,8 +384,16 @@ function ResponsiveDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
+<<<<<<< HEAD
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+=======
+            display: { xs: "none", sm: "none", lg: "flex", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
           }}
         >
           {drawer}
@@ -286,14 +401,23 @@ function ResponsiveDrawer(props) {
         <Drawer
           variant="permanent"
           sx={{
+<<<<<<< HEAD
             display: { xs: 'none', sm: 'block' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+=======
+            display: { xs: "none", sm: "none", lg: "flex", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
           }}
           open
         >
           {drawer}
         </Drawer>
       </Box>
+<<<<<<< HEAD
       <Container>
         <Box
           component="main"
@@ -303,6 +427,8 @@ function ResponsiveDrawer(props) {
           {/* {content} */}
         </Box>
       </Container>
+=======
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
     </Box>
   );
 }

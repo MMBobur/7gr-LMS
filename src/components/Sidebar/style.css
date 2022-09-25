@@ -1,0 +1,59 @@
+.iconNav {
+	background-color: #FFFFFF;
+	/* box-shadow: 1px 1.3px 10px 0.1px #b1a9a9; */
+	color: rgb(0, 0, 0);
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.active {
+	color: #fff;
+	text-decoration: none;
+}
+.text {
+	font-weight: 500;
+	color: #67748e;
+	text-transform: capitalize;
+}
+
+.active #btnBox {
+	font-weight: 600;
+	background-color: white;
+	box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+.active #btnBox .text {
+	font-weight: 600;
+	color: #000;
+}
+.active #btnBox .iconNav {
+	background-color: #cb0c9f;
+	color:white;
+}
+
+/* ///////////////////////////////// */
+
+/* #sidebar{
+	min-height: 100vh;
+	overflow-y: auto;
+	direction: ltr;
+	scrollbar-color: #fffefd #e4e4e4;
+	scrollbar-width: thin;
+}
+  
+#sidebar::-webkit-scrollbar {
+	width: 5px;
+  }
+  
+  #sidebar::-webkit-scrollbar-track {
+	background-color: #e4e4e4;
+	border-radius: 100px;
+  }
+  
+  #sidebar:hover::-webkit-scrollbar-thumb {
+	border-radius: 100px;
+	background-image: linear-gradient(180deg, #a7949e 0%, #959699 99%);
+	box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  }
+   */
