@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 const baseURL = 'http://localhost:8080/api';
 const service = axios.create({
   baseURL,
@@ -47,4 +51,8 @@ export function execute(promise) {
 }
 
 export { service };
+<<<<<<< HEAD
 export default CustomAxios.instance;
+=======
+export default CustomAxios.instance;
+>>>>>>> master
