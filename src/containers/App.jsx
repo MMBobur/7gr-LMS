@@ -35,10 +35,22 @@ export default () => {
   const publicUser = token ? false : true;
 
   const content = useRoutes(
+<<<<<<< HEAD
+<<<<<<< HEAD
+    // publicUser ? publicRoutes : waiter ? dashboardRoutes : dashboardRoutes
+    dashboardRoutes
+
+=======
+    // publicUser ? publicRoutes : waiter ? dashboardRoutes :
+    
+     dashboardRoutes
+>>>>>>> master
+=======
 
     dashboardRoutes
     // publicUser ? publicRoutes : waiter ? dashboardRoutes : dashboardRoutes
 
+>>>>>>> 96f6d0380a724fc808db44dade636207b3e979e0
   );
 
   return <>{content}</>;
