@@ -1,0 +1,18 @@
+.a{
+    font-size: 12px;
+    font-weight: 600;
+    color: #A8B3C4;
+}
+.activ{
+    background: linear-gradient(310deg,#17ad37,#98ec2d);
+}
+.activ2{
+    background: linear-gradient(310deg,#627594,#a8b8d8);
+}
+
+/* .btn{
+    background: linear-gradient(610deg,red,#491413);
+}
+.but1{
+    background: linear-gradient(210deg,blue,#17ad37);
+} */

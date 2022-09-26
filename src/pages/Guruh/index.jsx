@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import {Box, Chip, Button} from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
@@ -23,16 +22,18 @@ import DeleteModal from '../../components/Modal';
 export default () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     Services.getAll().then((res) => {
       setData(res);
     });
-  }, []);
+  }, [loading]);
 
   function Delete(id) {
     // const id = window.localStorage.getItem("ItemId")
    Services.delete(id).then();
+   setLoading(!loading)
    navigate('/guruh')
     // handleClose();
   }
@@ -42,7 +43,7 @@ export default () => {
 
     return (
       <React.Fragment>
-        <TableRow onClick={() => setOpen(!open)} sx={{ "& > *": { borderBottom: "unset" }}} key={index}>
+        <TableRow sx={{ "& > *": { borderBottom: "unset" }}} key={index}>
           <TableCell>
             <IconButton
               aria-label="expand row"

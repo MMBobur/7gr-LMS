@@ -5,44 +5,49 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import {Paper, Container, Box} from '@mui/material';
 import Services from '../../services/subject'
 import Button from '@mui/material/Button'
-import{useNavigate,useParams,Link} from 'react-router-dom'
+import{useNavigate} from 'react-router-dom'
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import DeleteModal from '../../components/Modal';
 
 
 export default function BasicTable() {
   const [data, setData] = useState([])
-  console.log(data);
- const {id} = useParams()
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     Services.getAll().then((res) => {
       setData(res);
       console.log(res);
     });
-  },[])
+  },[loading])
 
 
   function Delete(id) {
-    Services.delete(id).then();
+    Services.delete(id).then(setLoading(!loading));
+    navigate('/fanlar');
   }
  
-    // console.log(id);
   
   return (
-    <>
-    <Button component={Link}to="/add" color='success' variant='contained'>Qoshish</Button>
+    <Container sx={{width:'100%'}}>
+     <Box sx={{mt: 1 , mb:2}}>
+        <Button variant="outlined" id="btnplus" onClick={() => navigate('/fanlar/added')}>Qoshish +</Button>
+      </Box>
+
     <TableContainer component={Paper}>
-      
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         
         <TableHead>
           <TableRow>
-          <TableCell  >#</TableCell>
-            <TableCell  align="center">Fanlar</TableCell>
-            <TableCell align="center">Malumot</TableCell>
-            <TableCell align="center">Boshqaruv</TableCell>
+          <TableCell  sx={{fontWeight: "bold", color: "gray"}} >#</TableCell>
+            <TableCell  sx={{fontWeight: "bold", color: "gray"}} align="center">Fanlar</TableCell>
+            <TableCell  sx={{fontWeight: "bold", color: "gray"}} align="center">Malumot</TableCell>
+            <TableCell  sx={{fontWeight: "bold", color: "gray"}} align="center">Boshqaruv</TableCell>
             
           </TableRow>
         </TableHead>
@@ -57,16 +62,15 @@ export default function BasicTable() {
               </TableCell>
               <TableCell align="center">{row.title}</TableCell>
               <TableCell align="center">{row.desc}</TableCell>
-              <TableCell align="center">
-                <Button variant='contained'color="success" component={Link} to={`/edit/${row.id}`}>edit </Button>
-                <Button  variant='contained' color="error" onClick={() => Delete(row.id)}>delit</Button>
-               
-              </TableCell>
+              <TableCell align="center" sx={{display:' flex', justifyContent: 'center' }}>
+            <DeleteModal color="error" ochirish={() => Delete(row.id)}><DeleteIcon color="error"/></DeleteModal>
+            <Button color="success" onClick={() => navigate(`/fanlar/edit/${row.id}`)}><ModeEditIcon/></Button>
+            </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-    </>
+    </Container>
   );
 };

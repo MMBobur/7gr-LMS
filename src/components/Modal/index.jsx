@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
+import  React from 'react';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useNavigate } from 'react-router-dom';
+
 
 const style = {
   position: 'absolute',
@@ -20,15 +20,19 @@ const style = {
   textAlign:'center',
 };
 
-export default function BasicModal({ochirish, children}) {
+export default function BasicModal({ochirish, children, ...props}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const navigate = useNavigate();
+  function Del () {
+    ochirish();
+    handleClose();
+  }
+  
   return (
     <div>
-      <Button onClick={handleOpen}>{children}</Button>
+      <Button {...props} onClick={handleOpen}>{children}</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -40,8 +44,8 @@ export default function BasicModal({ochirish, children}) {
             Ma'lumot o'chirilsinmi?
           </Typography>
           <Box sx={{columnGap:"30%", display:'flex', mt:5}}>
-            <Button variant="outlined" id="btnplus" sx={{width:'35%'}} onClick={() => navigate("/guruh")}>Bekor qilish</Button>
-            <Button variant="outlined" id="btnDel"sx={{width:'35%'}} onClick={ochirish}>O'chirish</Button>
+            <Button variant="outlined" id="btnplus" sx={{width:'35%'}}  onClick={handleClose}>Bekor qilish</Button>
+            <Button variant="outlined" id="btnDel"sx={{width:'35%'}}  onClick={() => Del()}>O'chirish</Button>
         </Box>
         </Box>
       </Modal>

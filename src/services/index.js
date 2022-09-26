@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
-const baseURL = 'http://localhost:8080/api';
+const baseURL = process.env.REACT_APP_API_URL;
 const service = axios.create({
   baseURL,
   headers: {
@@ -51,8 +47,4 @@ export function execute(promise) {
 }
 
 export { service };
-<<<<<<< HEAD
 export default CustomAxios.instance;
-=======
-export default CustomAxios.instance;
->>>>>>> master

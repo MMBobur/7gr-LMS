@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -122,6 +121,7 @@ function ResponsiveDrawer(props) {
           }}
           sx={{
             display: { xs: "none", sm: "none", lg: "flex", md: "none" },
+            // eslint-disable-next-line no-dupe-keys
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
