@@ -21,11 +21,10 @@ export const publicRoutes = [
   {
     element: <Auth />,
     children: [
-// <<<<<<< HEAD
-      // { path: "/", element: <Login /> },
-      // { path: "/login", element: <Students /> },
-      // { path: "404", element: <NotFound /> },
-      // { path: "*", element: <Navigate to="/login" /> },
+      { path: "/", element: <Login /> },
+      { path: "/login", element: <Students /> },
+      { path: "404", element: <NotFound /> },
+      { path: "*", element: <Navigate to="/login" /> },
     ],
   },
 ];

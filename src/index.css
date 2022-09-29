@@ -3,6 +3,7 @@
 } */
 /* body {
   margin: 0;
+<<<<<<< HEAD
   background-color: #F8F9FA; */
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -15,6 +16,7 @@
   font-family: 'Roboto', sans-serif;
   src: local("Roboto', sans-serif"),
     url("./fonts/Roboto-Black.ttf") format("ttf");
+<<<<<<< HEAD
 } */
 /* 
 code {
@@ -38,6 +40,13 @@ code {
 } */
 
 /* #statusOKGR {
+=======
+*::-webkit-scrollbar{
+  display: none;
+}
+
+#statusOKGR {
+>>>>>>> 2fde66b7e69c405419321bf805efa16a5fba7beb
 	padding: 1% 5%;
 	text-transform: uppercase;
 	background-image: linear-gradient(310deg, #17ad37, #98ec2d);
@@ -67,4 +76,5 @@ code {
   font-weight: 600;
   width: 25vh;
 
+<<<<<<< HEAD
 } */
