@@ -1,17 +1,31 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import NotFound from "../pages/404";
-import Login from "../pages/Login";
 import Auth from "../containers/Auth";
+import Home from "../containers/Home";
+import InputR from "../pages/Steps/InputR";
+import Steps from "../pages/Steps/Steps";
+
+
+export const dashboardRoutes = [
+  {
+    element: <Home />,
+    children: [
+      { path: '/steps', element: <Steps /> },
+      { path: '/inputr', element: <InputR /> },
+      { path: "*", element: <Navigate to="/" /> },
+    ],
+  },
+];
 
 export const publicRoutes = [
   {
     element: <Auth />,
     children: [
-      { path: "/", element: <Login /> },
-      { path: "/login", element: <Login /> },
-      { path: "404", element: <NotFound /> },
-      { path: "*", element: <Navigate to="/login" /> },
+// <<<<<<< HEAD
+      // { path: "/", element: <Login /> },
+      // { path: "/login", element: <Students /> },
+      // { path: "404", element: <NotFound /> },
+      // { path: "*", element: <Navigate to="/login" /> },
     ],
   },
 ];
