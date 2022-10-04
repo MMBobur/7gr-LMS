@@ -12,7 +12,7 @@ export const dashboardRoutes = [
     children: [
       { path: '/steps', element: <Steps /> },
       { path: '/inputr', element: <InputR /> },
-      { path: "*", element: <Navigate to="/" /> },
+      { path: "*", element: <Navigate to="/steps" /> },
     ],
   },
 ];
@@ -21,9 +21,6 @@ export const publicRoutes = [
   {
     element: <Auth />,
     children: [
-      { path: "/", element: <Login /> },
-      { path: "/login", element: <Students /> },
-      { path: "404", element: <NotFound /> },
       { path: "*", element: <Navigate to="/login" /> },
     ],
   },
